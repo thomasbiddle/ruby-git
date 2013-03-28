@@ -325,7 +325,7 @@ module Git
     end
 
     # fetches a branch from a remote and merges it into the current working branch
-    def pull(remote = 'origin', branch = 'master')
+    def pull(remote = nil, branch = nil)
       self.lib.pull(remote, branch)
     end
     

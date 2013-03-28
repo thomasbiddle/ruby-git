@@ -514,8 +514,11 @@ module Git
       command('merge', arr_opts)
     end
 
-    def pull(remote, branch)
-      command('pull', [remote, branch])
+    def pull(remote = nil, branch = nil)
+      opts = []
+      opts << remote if remote
+      opts << branch if branch
+      command('pull', opts)
     end
 
     def unmerged
