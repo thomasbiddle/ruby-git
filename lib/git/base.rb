@@ -24,9 +24,18 @@ module Git
         :working_directory => working_dir,
         :repository => File.join(working_dir, '.git')
       }.merge(opts)
-      
+
       FileUtils.mkdir_p(opts[:working_directory]) if opts[:working_directory] && !File.directory?(opts[:working_directory])
-      
+
+      # Submodules have a .git *file* not a .git folder.
+      # This file's contents point to the location of
+      # where the git refs are held (In the parent repo)
+      if File.file?('.git')
+        git_file = File.open('.git').read[8..-1].strip
+        opts[:repository] = git_file
+        opts[:index] = git_file + '/index'
+      end
+
       # run git_init there
       Git::Lib.new(opts).init
        
