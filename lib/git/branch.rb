@@ -9,13 +9,13 @@ module Git
       @base = base
       @gcommit = nil
       @stashes = nil
-      
+
       parts = name.split('/')
-      if parts[1]
+      if parts[0] == 'remotes'
         @remote = Git::Remote.new(@base, parts[0])
-        @name = parts[1]
+        @name = parts[2..-1].join('/')
       else
-        @name = parts[0]
+        @name = name
       end
     end
     
