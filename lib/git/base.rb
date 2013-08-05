@@ -328,6 +328,10 @@ module Git
       self.lib.merge(branch, message, arr)
     end
 
+    def rebase(branch)
+      self.lib.rebase(branch)
+    end
+
     # iterates over the files which are unmerged
     def each_conflict(&block) # :yields: file, your_version, their_version
       self.lib.conflicts(&block)

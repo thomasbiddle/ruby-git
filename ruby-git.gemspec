@@ -1,7 +1,7 @@
 spec = Gem::Specification.new do |s|
     s.platform  =   Gem::Platform::RUBY
     s.name      =   "git"
-    s.version   =   "1.1.1"
+    s.version   =   "1.1.13"
     s.author    =   "Scott Chacon"
     s.email     =   "schacon@gmail.com"
     s.homepage  =   "http://github.com/schacon/ruby-git/tree/master"

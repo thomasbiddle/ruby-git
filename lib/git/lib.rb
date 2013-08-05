@@ -514,6 +514,10 @@ module Git
       command('merge', arr_opts)
     end
 
+    def rebase(branch)
+      command('rebase', [branch])
+    end
+
     def pull(remote = nil, branch = nil)
       opts = []
       opts << remote if remote
