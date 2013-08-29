@@ -364,6 +364,11 @@ module Git
       Git::Remote.new(self, name)
     end
 
+    def prune_remote(name)
+      self.lib.remote_prune(name)
+      Git::Remote.new(self, name)
+    end
+
     # returns an array of all Git::Tag objects for this repository
     def tags
       self.lib.tags.map { |r| tag(r) }

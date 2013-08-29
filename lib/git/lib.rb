@@ -559,7 +559,11 @@ module Git
     def remote_remove(name)
       command('remote', ['rm', '--', name])
     end
-    
+
+    def remote_prune(name)
+      command('remote', ['prune', name])
+    end
+
     def remotes
       command_lines('remote')
     end
